@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="49dp"
+    android:background="@color/titlebar_background"
+    android:orientation="horizontal"
+    android:clickable="true"
+    android:gravity="center_vertical"
+    android:paddingLeft="2dp">
+
+    <ImageView
+        android:id="@id/player_play_or_pause_btn"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:padding="13dp"
+        android:src="@drawable/player_icon_media_play"/>
+
+    <TextView
+        android:id="@id/player_curr_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="7dp"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:text="00:00"/>
+
+    <SeekBar
+        style="@style/MediaPlayerSeekBar"
+        android:id="@id/player_progress"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@android:color/transparent"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:max="100"/>
+
+    <TextView
+        android:id="@id/player_total_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginRight="20dp"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:text="00:00"/>
+
+    <LinearLayout
+        android:id="@id/player_bottom_control_right_extra"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+    </LinearLayout>
+
+    <View
+        android:id="@id/player_volume_btn"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginRight="20dp"
+        android:clickable="true"
+        android:visibility="gone"
+        android:background="@drawable/volume_icon"/>
+
+    <ImageView
+        android:id="@id/player_switch_full_screen"
+        android:layout_width="20dp"
+        android:layout_height="48dp"
+        android:layout_marginRight="20dp"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp"
+        android:src="@drawable/player_icon_fullscreen_stretch"/>
+</LinearLayout>

@@ -1,0 +1,4 @@
+<resources>
+    <dimen name="panel_width">150dp</dimen>
+    <dimen name="media_setting_panel_width">150dp</dimen>
+</resources>

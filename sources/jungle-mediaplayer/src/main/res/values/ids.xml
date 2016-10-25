@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- title -->
+    <item name="player_title" type="id"/>
+    <item name="player_back_btn" type="id"/>
+    <item name="player_back_zone" type="id"/>
+    <item name="player_title_extra_container" type="id"/>
+    <item name="player_power_icon" type="id"/>
+    <item name="player_in_charge_icon" type="id"/>
+    <item name="player_system_time" type="id"/>
+
+    <!-- bottom bar -->
+    <item name="player_play_or_pause_btn" type="id"/>
+    <item name="player_curr_progress" type="id"/>
+    <item name="player_progress" type="id"/>
+    <item name="player_total_duration" type="id"/>
+    <item name="player_switch_full_screen" type="id"/>
+    <item name="player_volume_btn" type="id"/>
+    <item name="player_bottom_control_right_extra" type="id"/>
+</resources>

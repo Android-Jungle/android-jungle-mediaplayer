@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:background="@drawable/adjust_panel_bkg"
+    android:padding="15dp">
+
+    <View
+        android:id="@+id/lock_icon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/lock_screen_icon"/>
+
+    <TextView
+        android:id="@+id/lock_tips"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="13sp"
+        android:text="@string/lock_orientation"/>
+</LinearLayout>

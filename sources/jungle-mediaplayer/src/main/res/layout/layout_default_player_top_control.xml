@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/title_bar_container"
+    android:layout_width="match_parent"
+    android:layout_height="49dp"
+    android:paddingRight="15dp"
+    android:clickable="true"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="@color/titlebar_background">
+
+    <LinearLayout
+        android:id="@id/player_back_zone"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:clickable="true"
+        android:gravity="center_vertical">
+
+        <View
+            android:id="@id/player_back_btn"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:duplicateParentState="true"
+            android:background="@drawable/player_bar_back_btn"/>
+
+        <TextView
+            android:id="@id/player_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:duplicateParentState="true"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textColor="@color/player_title_color"
+            android:textSize="18sp"
+            android:text="@string/back_title"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
+
+    <FrameLayout
+        android:id="@+id/player_title_extra_container"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <View
+                android:id="@id/player_power_icon"
+                android:layout_width="25dp"
+                android:layout_height="10dp"
+                android:layout_gravity="center"
+                android:background="@drawable/battery0"/>
+
+            <View
+                android:id="@+id/player_in_charge_icon"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:visibility="gone"
+                android:background="@drawable/in_charge_icon"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/player_system_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            android:text="00:00"/>
+    </LinearLayout>
+</LinearLayout>

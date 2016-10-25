@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/video_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="false"
+    android:background="@color/video_view_bkg">
+
+    <FrameLayout
+        android:id="@+id/media_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </FrameLayout>
+
+    <com.youngo.player.video.widget.PlayerTopControl
+        android:id="@+id/player_top_control"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.youngo.player.video.widget.PlayerBottomControl
+        android:id="@+id/player_bottom_control"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:visibility="gone"/>
+
+    <com.youngo.player.video.widget.panel.LockOrientationPanel
+        android:id="@+id/lock_orientation_panel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"/>
+
+    <com.youngo.player.video.widget.PlayerLoadingControl
+        android:id="@+id/player_loading_control"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</FrameLayout>

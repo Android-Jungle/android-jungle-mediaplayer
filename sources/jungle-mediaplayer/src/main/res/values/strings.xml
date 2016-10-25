@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">jungle-mediaplayer</string>
+    <string name="play_video">全屏播放视频</string>
+    <string name="play_video_half">非全屏播放视频</string>
+    <string name="invalid_video_info">无法播放，视频播放参数不合法！</string>
+    <string name="sd_video">标清</string>
+    <string name="hd_video">高清</string>
+    <string name="back_title">返回</string>
+    <string name="lock_orientation">点击锁定</string>
+    <string name="unlock_orientation">点击解锁</string>
+    <string name="refresh">刷新</string>
+    <string name="loading_error_pre">抱歉，当前网络不稳定，您可以尝试</string>
+    <string name="loading_error_post">操作</string>
+    <string name="player_video_loading">努力加载中…</string>
+    <string name="player_network_connection_failed">网络连接失败</string>
+</resources>

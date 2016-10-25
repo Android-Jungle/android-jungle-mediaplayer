@@ -1,0 +1,14 @@
+<resources>
+    <color name="progressbar_background">#d4d2d3</color>
+    <color name="progressbar_progress">#d63334</color>
+    <color name="progressbar_secondary_progress">#fff</color>
+    <color name="player_background">#333</color>
+    <color name="stream_name_playing">#0292f1</color>
+    <color name="stream_name_normal">#fff</color>
+    <color name="video_view_bkg">#000</color>
+    <color name="titlebar_background">#b2000000</color>
+    <color name="operate_panel_bkg">#e0333333</color>
+    <color name="loading_view_bkg">#2a2a2a</color>
+    <color name="seek_loading_bkg">#80333333</color>
+    <color name="low_power_color">#cd3624</color>
+</resources>
