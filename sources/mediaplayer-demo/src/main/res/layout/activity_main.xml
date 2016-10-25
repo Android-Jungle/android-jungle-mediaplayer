@@ -12,19 +12,20 @@
         android:id="@+id/play_video_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="@string/play_video"/>
 
     <Button
         android:id="@+id/play_audio_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:text="@string/play_audio"/>
 
     <Button
         android:id="@+id/record_audio_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:text="@string/record_audio"/>
 </LinearLayout>

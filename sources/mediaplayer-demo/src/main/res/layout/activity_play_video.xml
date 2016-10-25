@@ -5,4 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.jungle.mediaplayer.widgets.JungleMediaPlayer
+        android:id="@+id/media_player"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/other_conteiner_tips"
+            android:textSize="18sp"
+            android:textColor="#333"/>
+    </FrameLayout>
 </LinearLayout>

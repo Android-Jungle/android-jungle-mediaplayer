@@ -21,8 +21,18 @@ package com.jungle.mediaplayer.demo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import com.jungle.mediaplayer.base.VideoInfo;
+import com.jungle.mediaplayer.widgets.JungleMediaPlayer;
+import com.jungle.mediaplayer.widgets.SimpleJungleMediaPlayerListener;
 
 public class PlayVideoActivity extends AppCompatActivity {
+
+    private static final String VIDEO_URL =
+            "http://200000594.vod.myqcloud.com/200000594_1617cc56708f11e596723b988fc18469.f20.mp4";
+
+
+    private JungleMediaPlayer mMediaPlayer;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -30,5 +40,31 @@ public class PlayVideoActivity extends AppCompatActivity {
 
         setTitle(R.string.play_video);
         setContentView(R.layout.activity_play_video);
+
+        initMediaPlayer();
+        mMediaPlayer.playMedia(new VideoInfo(VIDEO_URL));
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mMediaPlayer.stop();
+    }
+
+    private void initMediaPlayer() {
+        mMediaPlayer = (JungleMediaPlayer) findViewById(R.id.media_player);
+        mMediaPlayer.setAutoReloadWhenError(false);
+        mMediaPlayer.setPlayerListener(new SimpleJungleMediaPlayerListener() {
+
+            @Override
+            public void onTitleBackClicked() {
+                if (mMediaPlayer.isFullscreen()) {
+                    mMediaPlayer.switchFullScreen(false);
+                    return;
+                }
+
+                finish();
+            }
+        });
     }
 }

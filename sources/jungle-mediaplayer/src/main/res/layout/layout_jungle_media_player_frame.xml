@@ -13,26 +13,26 @@
         android:layout_height="match_parent">
     </FrameLayout>
 
-    <com.youngo.player.video.widget.PlayerTopControl
+    <com.jungle.mediaplayer.widgets.control.PlayerTopControl
         android:id="@+id/player_top_control"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <com.youngo.player.video.widget.PlayerBottomControl
+    <com.jungle.mediaplayer.widgets.control.PlayerBottomControl
         android:id="@+id/player_bottom_control"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:visibility="gone"/>
 
-    <com.youngo.player.video.widget.panel.LockOrientationPanel
+    <com.jungle.mediaplayer.widgets.panel.LockOrientationPanel
         android:id="@+id/lock_orientation_panel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:visibility="gone"/>
 
-    <com.youngo.player.video.widget.PlayerLoadingControl
+    <com.jungle.mediaplayer.widgets.control.PlayerLoadingControl
         android:id="@+id/player_loading_control"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

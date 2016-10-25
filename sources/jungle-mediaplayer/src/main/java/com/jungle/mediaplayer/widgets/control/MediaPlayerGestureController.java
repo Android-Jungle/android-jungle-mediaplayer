@@ -114,8 +114,10 @@ public class MediaPlayerGestureController {
 
     private void reset() {
         mAdjustType = AdjustType.None;
-        mAdjustPanel.hidePanel();
         mProgressAdjustPanel.hidePanel();
+        if (mAdjustPanel != null) {
+            mAdjustPanel.hidePanel();
+        }
     }
 
     public void setAdjustPanelContainer(FrameLayout layout) {
@@ -221,6 +223,10 @@ public class MediaPlayerGestureController {
     }
 
     private boolean adjustVolume(float distanceY) {
+        if (mAdjustPanel == null) {
+            return true;
+        }
+
         distanceY *= -1;
         float percent = distanceY / (float) mPlayerRootView.getMeasuredHeight();
 
@@ -254,6 +260,10 @@ public class MediaPlayerGestureController {
     }
 
     private boolean adjustBrightness(float distanceY) {
+        if (mAdjustPanel == null) {
+            return true;
+        }
+
         distanceY *= -1;
         float percent = distanceY / (float) mPlayerRootView.getMeasuredHeight();
         float brightnessOffset = percent * 1.2f;

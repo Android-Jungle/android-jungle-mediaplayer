@@ -4,4 +4,5 @@
     <string name="play_audio">Play Audio</string>
     <string name="record_audio">Record Audio</string>
     <string name="main_activity_title">@string/app_name</string>
+    <string name="other_conteiner_tips">Other Contents.</string>
 </resources>
