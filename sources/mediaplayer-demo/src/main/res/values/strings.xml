@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">android-jungle-mediaplayer</string>
+    <string name="app_name">Jungle MediaPlayer Demo</string>
+    <string name="play_video">Play Video</string>
+    <string name="play_audio">Play Audio</string>
+    <string name="record_audio">Record Audio</string>
+    <string name="main_activity_title">@string/app_name</string>
 </resources>
