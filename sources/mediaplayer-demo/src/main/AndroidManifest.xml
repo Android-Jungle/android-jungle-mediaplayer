@@ -19,7 +19,8 @@
         <activity android:name=".PlayAudioActivity"/>
         <activity
             android:name=".PlayVideoActivity"
-            android:configChanges="orientation"/>
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize"/>
 
         <activity android:name=".MainActivity">
             <intent-filter>

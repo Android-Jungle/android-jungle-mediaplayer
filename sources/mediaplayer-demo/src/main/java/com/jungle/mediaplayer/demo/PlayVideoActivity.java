@@ -18,9 +18,14 @@
 
 package com.jungle.mediaplayer.demo;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import com.jungle.mediaplayer.base.VideoInfo;
 import com.jungle.mediaplayer.widgets.JungleMediaPlayer;
 import com.jungle.mediaplayer.widgets.SimpleJungleMediaPlayerListener;
@@ -32,6 +37,8 @@ public class PlayVideoActivity extends AppCompatActivity {
 
 
     private JungleMediaPlayer mMediaPlayer;
+    private boolean mIsFullScreenNow = false;
+    private int mVideoZoneNormalHeight = 0;
 
 
     @Override
@@ -51,8 +58,51 @@ public class PlayVideoActivity extends AppCompatActivity {
         mMediaPlayer.stop();
     }
 
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            switchVideoContainer(true);
+        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            switchVideoContainer(false);
+        }
+    }
+
+    private void switchVideoContainer(boolean fullScreen) {
+        if (mIsFullScreenNow == fullScreen) {
+            return;
+        }
+
+        mIsFullScreenNow = fullScreen;
+
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            if (mIsFullScreenNow) {
+                actionBar.hide();
+            } else {
+                actionBar.show();
+            }
+        }
+
+        updateVideoZoneSize(fullScreen);
+    }
+
+    private void updateVideoZoneSize(final boolean fullScreen) {
+        ViewGroup.LayoutParams params = mMediaPlayer.getLayoutParams();
+        params.height = fullScreen
+                ? ViewGroup.LayoutParams.MATCH_PARENT
+                : mVideoZoneNormalHeight;
+        mMediaPlayer.setLayoutParams(params);
+    }
+
     private void initMediaPlayer() {
+        DisplayMetrics metrics = getResources().getDisplayMetrics();
+        mVideoZoneNormalHeight = (int) (metrics.widthPixels / 1.77f);
+
+        FrameLayout panel = (FrameLayout) findViewById(R.id.adjust_panel_container);
         mMediaPlayer = (JungleMediaPlayer) findViewById(R.id.media_player);
+        mMediaPlayer.setAdjustPanelContainer(panel);
         mMediaPlayer.setAutoReloadWhenError(false);
         mMediaPlayer.setPlayerListener(new SimpleJungleMediaPlayerListener() {
 
@@ -66,5 +116,7 @@ public class PlayVideoActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        updateVideoZoneSize(false);
     }
 }
