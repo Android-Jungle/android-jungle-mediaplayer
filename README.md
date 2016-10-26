@@ -9,14 +9,14 @@
 - 视频播放支持 `SurfaceView/TextureView` 渲染；
 - 提供语音录制组件。
 
-内置播放器支持以下功能：
+**内置播放器支持以下功能：**
 
 - 手势（双击暂停/回复播放；水平滑动进度跳转；左侧上下滑动调节亮度；右侧上下滑动调节音量）
 - 支持全屏/半屏播放；
 - 支持屏幕旋转自动识别，并自动切换全屏/半屏；
 - 可定制。
 
-具体实现原理请参考我的系列博文：
+**具体实现原理请参考我的系列博文：**
 
 - [【Android】 从头搭建视频播放器（1）——概述](http://blog.csdn.net/arnozhang12/article/details/48731443)
 - [【Android】 从头搭建视频播放器（2）——SystemMediaPlayerImpl](http://blog.csdn.net/arnozhang12/article/details/48734139)
