@@ -18,6 +18,7 @@
 
         <activity android:name=".RecordAudioActivity"/>
         <activity android:name=".PlayAudioActivity"/>
+        <activity android:name=".SimplePlayVideoActivity"/>
         <activity
             android:name=".PlayVideoActivity"
             android:screenOrientation="portrait"

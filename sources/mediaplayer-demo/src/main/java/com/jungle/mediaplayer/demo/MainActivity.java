@@ -57,6 +57,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(RecordAudioActivity.class);
             }
         });
+
+        findViewById(R.id.simple_video_player_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SimplePlayVideoActivity.start(MainActivity.this, MEDIA_URL);
+            }
+        });
     }
 
     private void startActivity(Class<? extends Activity> clazz) {
