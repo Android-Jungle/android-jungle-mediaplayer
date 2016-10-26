@@ -13,6 +13,6 @@
     <string name="loading_media">Loading…</string>
     <string name="stop_record">Stop Record</string>
     <string name="media_url_error">Media Url Error!</string>
-    <string name="simple_video_player">Simple Video Player</string>
-    <string name="simple_play_video">Simple Play Video</string>
+    <string name="simple_play_video_surface">Simple Play Video - SurfaceView</string>
+    <string name="simple_play_video_texture">Simple Play Video - TextureView</string>
 </resources>

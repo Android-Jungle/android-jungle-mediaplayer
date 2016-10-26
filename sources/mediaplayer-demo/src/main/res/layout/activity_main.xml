@@ -30,9 +30,16 @@
         android:text="@string/record_audio"/>
 
     <Button
-        android:id="@+id/simple_video_player_btn"
+        android:id="@+id/simple_video_player_surface_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="@string/simple_video_player"/>
+        android:text="@string/simple_play_video_surface"/>
+
+    <Button
+        android:id="@+id/simple_video_player_texture_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/simple_play_video_texture"/>
 </LinearLayout>

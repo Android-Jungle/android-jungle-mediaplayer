@@ -58,10 +58,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.simple_video_player_btn).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.simple_video_player_surface_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SimplePlayVideoActivity.start(MainActivity.this, MEDIA_URL);
+                SimplePlayVideoSurfaceViewActivity.start(MainActivity.this, MEDIA_URL);
+            }
+        });
+
+        findViewById(R.id.simple_video_player_texture_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SimplePlayVideoTextureViewActivity.start(MainActivity.this, MEDIA_URL);
             }
         });
     }

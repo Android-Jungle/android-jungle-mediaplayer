@@ -24,7 +24,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.view.SurfaceView;
+import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,32 +32,31 @@ import com.jungle.mediaplayer.base.SimpleMediaPlayerListener;
 import com.jungle.mediaplayer.base.VideoInfo;
 import com.jungle.mediaplayer.player.BaseMediaPlayer;
 import com.jungle.mediaplayer.player.SystemImplMediaPlayer;
-import com.jungle.mediaplayer.player.render.SurfaceViewMediaRender;
+import com.jungle.mediaplayer.player.render.MediaRender;
 
-public class SimplePlayVideoActivity extends AppCompatActivity {
+public abstract class BaseSimplePlayVideoActivity extends AppCompatActivity {
 
-    private static final String EXTRA_VIDEO_URL = "extra_video_url";
+    protected static final String EXTRA_VIDEO_URL = "extra_video_url";
 
 
-    public static void start(Context context, String url) {
-        Intent intent = new Intent(context, SimplePlayVideoActivity.class);
+    public static void start(Context context, String url,
+            Class<? extends BaseSimplePlayVideoActivity> clazz) {
+
+        Intent intent = new Intent(context, clazz);
         intent.putExtra(EXTRA_VIDEO_URL, url);
         context.startActivity(intent);
     }
 
 
-    private BaseMediaPlayer mMediaPlayer;
-    private SurfaceView mSurfaceView;
-    private String mVideoUrl;
+    protected BaseMediaPlayer mMediaPlayer;
+    protected String mVideoUrl;
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setTitle(R.string.simple_play_video);
-        setContentView(R.layout.activity_simple_play_video);
-
+        setContentView(getContentViewResId());
         initMediaPlayer();
 
         mVideoUrl = getIntent().getStringExtra(EXTRA_VIDEO_URL);
@@ -69,6 +68,10 @@ public class SimplePlayVideoActivity extends AppCompatActivity {
             urlView.setText(R.string.media_url_error);
         }
     }
+
+    protected abstract int getContentViewResId();
+
+    protected abstract MediaRender createMediaRender();
 
     @Override
     protected void onStop() {
@@ -83,23 +86,24 @@ public class SimplePlayVideoActivity extends AppCompatActivity {
     }
 
     private void initMediaPlayer() {
-        mSurfaceView = (SurfaceView) findViewById(R.id.surface_view);
-        mSurfaceView.getViewTreeObserver().addOnGlobalLayoutListener(
+        MediaRender render = createMediaRender();
+        final View renderView = render.getRenderView();
+        renderView.getViewTreeObserver().addOnGlobalLayoutListener(
                 new ViewTreeObserver.OnGlobalLayoutListener() {
                     @Override
                     public void onGlobalLayout() {
                         mMediaPlayer.updateMediaRenderSize(
-                                mSurfaceView.getMeasuredWidth(),
-                                mSurfaceView.getMeasuredHeight(),
+                                renderView.getMeasuredWidth(),
+                                renderView.getMeasuredHeight(),
                                 false);
                     }
                 });
 
-        mMediaPlayer = new SystemImplMediaPlayer(this, new SurfaceViewMediaRender(mSurfaceView));
+        mMediaPlayer = new SystemImplMediaPlayer(this, render);
         mMediaPlayer.addPlayerListener(new SimpleMediaPlayerListener() {
             @Override
             public void onPlayComplete() {
-                Toast.makeText(SimplePlayVideoActivity.this,
+                Toast.makeText(BaseSimplePlayVideoActivity.this,
                         R.string.play_complete, Toast.LENGTH_SHORT).show();
             }
         });
