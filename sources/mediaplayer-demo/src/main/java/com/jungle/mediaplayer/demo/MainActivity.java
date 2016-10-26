@@ -26,6 +26,10 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String MEDIA_URL =
+            "http://200000594.vod.myqcloud.com/200000594_1617cc56708f11e596723b988fc18469.f20.mp4";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,14 +40,14 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.play_video_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(PlayVideoActivity.class);
+                PlayVideoActivity.start(MainActivity.this, MEDIA_URL);
             }
         });
 
         findViewById(R.id.play_audio_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(PlayAudioActivity.class);
+                PlayAudioActivity.start(MainActivity.this, MEDIA_URL);
             }
         });
 

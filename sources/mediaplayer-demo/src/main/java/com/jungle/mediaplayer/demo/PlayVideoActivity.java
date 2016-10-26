@@ -18,27 +18,38 @@
 
 package com.jungle.mediaplayer.demo;
 
+import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 import com.jungle.mediaplayer.base.VideoInfo;
 import com.jungle.mediaplayer.widgets.JungleMediaPlayer;
 import com.jungle.mediaplayer.widgets.SimpleJungleMediaPlayerListener;
 
 public class PlayVideoActivity extends AppCompatActivity {
 
-    private static final String VIDEO_URL =
-            "http://200000594.vod.myqcloud.com/200000594_1617cc56708f11e596723b988fc18469.f20.mp4";
+    private static final String EXTRA_VIDEO_URL = "extra_video_url";
+
+
+    public static void start(Context context, String url) {
+        Intent intent = new Intent(context, PlayVideoActivity.class);
+        intent.putExtra(EXTRA_VIDEO_URL, url);
+        context.startActivity(intent);
+    }
 
 
     private JungleMediaPlayer mMediaPlayer;
     private boolean mIsFullScreenNow = false;
     private int mVideoZoneNormalHeight = 0;
+    private String mVideoUrl;
 
 
     @Override
@@ -49,13 +60,27 @@ public class PlayVideoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_play_video);
 
         initMediaPlayer();
-        mMediaPlayer.playMedia(new VideoInfo(VIDEO_URL));
+
+        mVideoUrl = getIntent().getStringExtra(EXTRA_VIDEO_URL);
+        TextView urlView = (TextView) findViewById(R.id.video_url);
+        if (!TextUtils.isEmpty(mVideoUrl)) {
+            urlView.setText(mVideoUrl);
+            mMediaPlayer.playMedia(new VideoInfo(mVideoUrl));
+        } else {
+            urlView.setText(R.string.media_url_error);
+        }
     }
 
     @Override
     protected void onStop() {
         super.onStop();
         mMediaPlayer.stop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mMediaPlayer.destroy();
     }
 
     @Override

@@ -18,11 +18,14 @@
 
 package com.jungle.mediaplayer.demo;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
@@ -36,8 +39,14 @@ import com.jungle.mediaplayer.player.SystemImplMediaPlayer;
 
 public class PlayAudioActivity extends AppCompatActivity {
 
-    private static final String AUDIO_URL =
-            "http://200000594.vod.myqcloud.com/200000594_1617cc56708f11e596723b988fc18469.f20.mp4";
+    private static final String EXTRA_AUDIO_URL = "extra_audio_url";
+
+
+    public static void start(Context context, String url) {
+        Intent intent = new Intent(context, PlayAudioActivity.class);
+        intent.putExtra(EXTRA_AUDIO_URL, url);
+        context.startActivity(intent);
+    }
 
 
     private BaseMediaPlayer mMediaPlayer;
@@ -46,6 +55,7 @@ public class PlayAudioActivity extends AppCompatActivity {
     private TextView mPlayProgressView;
     private Handler mUIHandler = new Handler(Looper.getMainLooper());
     private boolean mHasAudioPlay = false;
+    private String mAudioUrl;
 
 
     @Override
@@ -54,6 +64,14 @@ public class PlayAudioActivity extends AppCompatActivity {
 
         setTitle(R.string.play_audio);
         setContentView(R.layout.activity_play_audio);
+
+        mAudioUrl = getIntent().getStringExtra(EXTRA_AUDIO_URL);
+        TextView urlView = (TextView) findViewById(R.id.audio_url);
+        if (!TextUtils.isEmpty(mAudioUrl)) {
+            urlView.setText(mAudioUrl);
+        } else {
+            urlView.setText(R.string.media_url_error);
+        }
 
         initAudioPlayer();
         mPlayBtn = (Button) findViewById(R.id.play_audio_btn);
@@ -87,7 +105,9 @@ public class PlayAudioActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+
         mMediaPlayer.stop();
+        mMediaPlayer.destroy();
         unScheduleUpdateProgress();
     }
 
@@ -154,8 +174,13 @@ public class PlayAudioActivity extends AppCompatActivity {
     }
 
     private void playAudio() {
+        if (TextUtils.isEmpty(mAudioUrl)) {
+            showToast(R.string.media_url_error);
+            return;
+        }
+
         if (!mHasAudioPlay) {
-            mMediaPlayer.play(new VideoInfo(AUDIO_URL));
+            mMediaPlayer.play(new VideoInfo(mAudioUrl));
         }
 
         if (mMediaPlayer.isPaused()) {

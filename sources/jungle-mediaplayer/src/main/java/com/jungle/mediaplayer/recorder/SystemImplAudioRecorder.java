@@ -75,7 +75,7 @@ public class SystemImplAudioRecorder extends BaseAudioRecorder
     }
 
     private boolean startRecordInternal() {
-        if (!TextUtils.isEmpty(mOutputFile)) {
+        if (TextUtils.isEmpty(mOutputFile)) {
             mListener.onError(RecorderListener.Error.NoAudioOutputFile);
             return false;
         }
@@ -84,6 +84,10 @@ public class SystemImplAudioRecorder extends BaseAudioRecorder
             initRecorder();
         } catch (Exception e) {
             e.printStackTrace();
+            if (mListener != null) {
+                mListener.onError(RecorderListener.Error.StartFailed);
+            }
+
             return false;
         }
 

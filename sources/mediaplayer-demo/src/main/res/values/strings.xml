@@ -11,4 +11,6 @@
     <string name="zero_position">00:00/00:00</string>
     <string name="progress_format">%1$s/%2$s</string>
     <string name="loading_media">Loading…</string>
+    <string name="stop_record">Stop Record</string>
+    <string name="media_url_error">Media Url Error!</string>
 </resources>
