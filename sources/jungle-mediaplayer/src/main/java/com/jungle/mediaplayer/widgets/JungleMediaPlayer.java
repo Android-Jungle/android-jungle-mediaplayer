@@ -44,8 +44,6 @@ public class JungleMediaPlayer extends MediaPlayerFrame {
 
         void onAuditionCompleted();
 
-        void onNextSection();
-
         void onReplayMedia(int startMillSeconds);
 
         void onReloadFromPosition(int playPosition);

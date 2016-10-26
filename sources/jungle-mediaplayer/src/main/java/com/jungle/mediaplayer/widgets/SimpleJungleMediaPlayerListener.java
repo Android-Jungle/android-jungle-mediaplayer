@@ -33,10 +33,6 @@ public class SimpleJungleMediaPlayerListener implements JungleMediaPlayer.Listen
     }
 
     @Override
-    public void onNextSection() {
-    }
-
-    @Override
     public void onReplayMedia(int startMillSeconds) {
     }
 
