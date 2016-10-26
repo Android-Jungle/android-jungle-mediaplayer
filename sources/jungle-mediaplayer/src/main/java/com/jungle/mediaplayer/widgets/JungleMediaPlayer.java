@@ -29,6 +29,7 @@ import com.jungle.mediaplayer.base.BaseMediaPlayerListener;
 import com.jungle.mediaplayer.base.VideoInfo;
 import com.jungle.mediaplayer.player.BaseMediaPlayer;
 import com.jungle.mediaplayer.player.SystemImplMediaPlayer;
+import com.jungle.mediaplayer.player.render.MediaRender;
 import com.jungle.mediaplayer.player.render.SurfaceViewMediaRender;
 
 public class JungleMediaPlayer extends MediaPlayerFrame {
@@ -110,9 +111,13 @@ public class JungleMediaPlayer extends MediaPlayerFrame {
 
     private void initMediaPlayer() {
         SurfaceView surfaceView = (SurfaceView) findViewById(R.id.player_surface);
-        mMediaPlayer = new SystemImplMediaPlayer(getContext(), new SurfaceViewMediaRender(surfaceView));
+        mMediaPlayer = createMediaPlayer(new SurfaceViewMediaRender(surfaceView));
         mMediaPlayer.addPlayerListener(mBasePlayerListener);
         mBottomControl.setMediaPlayer(this);
+    }
+
+    protected BaseMediaPlayer createMediaPlayer(MediaRender render) {
+        return new SystemImplMediaPlayer(getContext(), render);
     }
 
     public void setPlayerListener(Listener listener) {
