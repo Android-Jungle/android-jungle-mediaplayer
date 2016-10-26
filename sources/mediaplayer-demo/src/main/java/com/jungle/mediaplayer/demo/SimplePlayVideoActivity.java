@@ -25,6 +25,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.SurfaceView;
+import android.view.ViewTreeObserver;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.jungle.mediaplayer.base.SimpleMediaPlayerListener;
@@ -83,6 +84,17 @@ public class SimplePlayVideoActivity extends AppCompatActivity {
 
     private void initMediaPlayer() {
         mSurfaceView = (SurfaceView) findViewById(R.id.surface_view);
+        mSurfaceView.getViewTreeObserver().addOnGlobalLayoutListener(
+                new ViewTreeObserver.OnGlobalLayoutListener() {
+                    @Override
+                    public void onGlobalLayout() {
+                        mMediaPlayer.updateMediaRenderSize(
+                                mSurfaceView.getMeasuredWidth(),
+                                mSurfaceView.getMeasuredHeight(),
+                                false);
+                    }
+                });
+
         mMediaPlayer = new SystemImplMediaPlayer(this, new SurfaceViewMediaRender(mSurfaceView));
         mMediaPlayer.addPlayerListener(new SimpleMediaPlayerListener() {
             @Override

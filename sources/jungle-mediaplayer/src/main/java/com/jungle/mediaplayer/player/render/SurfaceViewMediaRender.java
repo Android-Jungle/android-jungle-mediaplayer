@@ -35,9 +35,9 @@ public class SurfaceViewMediaRender extends MediaRender
 
     @Override
     public void initRender() {
-        SurfaceHolder videoHolder = mSurfaceView.getHolder();
-        videoHolder.addCallback(this);
-        mIsRenderValid = !videoHolder.isCreating();
+        SurfaceHolder holder = mSurfaceView.getHolder();
+        holder.addCallback(this);
+        mIsRenderValid = !holder.isCreating();
     }
 
     public SurfaceView getSurfaceView() {
