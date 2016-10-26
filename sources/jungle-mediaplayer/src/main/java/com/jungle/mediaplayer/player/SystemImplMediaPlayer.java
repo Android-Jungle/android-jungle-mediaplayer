@@ -25,6 +25,7 @@ import android.net.Uri;
 import android.util.Log;
 import com.jungle.mediaplayer.base.VideoInfo;
 import com.jungle.mediaplayer.player.render.MediaRender;
+import com.jungle.mediaplayer.player.render.MockMediaRender;
 
 import java.io.IOException;
 
@@ -54,6 +55,10 @@ public class SystemImplMediaPlayer extends BaseMediaPlayer {
 
     protected MediaPlayer mMediaPlayer;
 
+
+    public SystemImplMediaPlayer(Context context) {
+        this(context, new MockMediaRender());
+    }
 
     public SystemImplMediaPlayer(Context context, MediaRender render) {
         super(context, render);
