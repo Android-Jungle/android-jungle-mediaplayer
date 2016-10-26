@@ -56,6 +56,8 @@ compile 'com.jungle.mediaplayer:android-jungle-mediaplayer:1.0'
 > 需要注意的是，在 Activity 销毁的时候，务必调用播放器组件的 **`destroy`** 方法进行销毁播放器。
 >
 > 如果播放网络视频或语音，需要在 `Android.manifest` 中声明 **`android.permission.INTERNET`** 权限。
+>
+> **SurfaceView** 不要设置任何背景（`android:background`），不然画面会显示不出。
 
 #### 5.1、视频播放
 
