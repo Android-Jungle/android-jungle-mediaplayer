@@ -27,7 +27,7 @@
 ### 2、使用方法
 
 ```
-compile "com.jungle.mediaplayer:android-jungle-mediaplayer:1.0"
+compile 'com.jungle.mediaplayer:android-jungle-mediaplayer:1.0'
 ```
 
 ### 3、Demo 截图
