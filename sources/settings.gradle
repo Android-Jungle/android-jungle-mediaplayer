@@ -1,1 +1,1 @@
-include ':mediaplayer-demo', ':jungle-mediaplayer'
+include ':mediaplayer-demo', ':android-jungle-mediaplayer'
