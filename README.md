@@ -18,11 +18,11 @@
 
 **具体实现原理请参考我的系列博文：**
 
-- [【Android】 从头搭建视频播放器（1）——概述](http://blog.csdn.net/arnozhang12/article/details/48731443)
-- [【Android】 从头搭建视频播放器（2）——SystemMediaPlayerImpl](http://blog.csdn.net/arnozhang12/article/details/48734139)
-- [【Android】 从头搭建视频播放器（3）——手势检测 & 控制](http://blog.csdn.net/arnozhang12/article/details/48735683)
-- [【Android】 从头搭建视频播放器（4）——屏幕旋转处理](http://blog.csdn.net/arnozhang12/article/details/48736147)
-- [【Android】 从头搭建视频播放器（5）——将所有放在一起](http://blog.csdn.net/arnozhang12/article/details/48736363)
+- [【Android】 从头搭建视频播放器（1）——概述](http://www.jianshu.com/p/c12481d3ceae)
+- [【Android】 从头搭建视频播放器（2）——SystemMediaPlayerImpl](http://www.jianshu.com/p/fc07935a0b04)
+- [【Android】 从头搭建视频播放器（3）——手势检测 & 控制](http://www.jianshu.com/p/2ea493532d2c)
+- [【Android】 从头搭建视频播放器（4）——屏幕旋转处理](http://www.jianshu.com/p/eb4451923172)
+- [【Android】 从头搭建视频播放器（5）——将所有放在一起](http://www.jianshu.com/p/59b02960e0d5)
 
 ### 2、使用方法
 
